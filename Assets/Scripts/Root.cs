@@ -5,14 +5,20 @@ using UnityEngine.EventSystems;
 
 public class Root : MonoBehaviour
 {
-    BoxCollider2D player;
+    public BoxCollider2D PlantColloder;
+    public BoxCollider2D RootColloder;
 
+    private int waterNum;
+    private int level = 0;
+    private int [] grow = new [] { 2 , 4 , 6 , 8 , 10 };
     private float speed = 1f;
 
-
+    BoxCollider2D player;
+    Animator anim;
 
     private void Start ()
     {
+        anim = GetComponent<Animator> ();
         player = GameObject.Find ( "Player" ).GetComponent<BoxCollider2D>();
 
         Physics2D.IgnoreCollision ( GetComponent<BoxCollider2D> () , player , true );
@@ -23,20 +29,61 @@ public class Root : MonoBehaviour
     {
         if ( collision.gameObject.tag == "Water" )
         {
+            waterNum++;
+            collision.gameObject.GetComponent<CircleCollider2D> ().enabled = false;
             collision.gameObject.GetComponent<WaterParticle> ().WaterDisappear ();
+            if ( level >= 5 )
+                return;
+
+            if ( waterNum >= grow[level] )
+                anim.speed = 1;
         }
     }
-    private void OnMouseDrag ()
-    {
-        if ( transform.localScale.x >= 1 )
-            return;
 
-        transform.localScale += new Vector3 ( speed * Time.deltaTime , 0 , 0 );
-        if ( transform.localScale.x >= 1 )
-        {
-            Physics2D.IgnoreCollision ( GetComponent<BoxCollider2D> () , player , false );
-            GetComponent<SpriteRenderer> ().color = Color.green;
-        }
+    void Grow1 ()
+    {
+        level = 1;
+        if ( waterNum >= grow[0] )
+            return;
+        anim.speed = 0;
+    }
+
+    void Grow2 ()
+    {
+        level = 2;
+        if ( waterNum >= grow[1] )
+            return;
+        anim.speed = 0;
+    }
+
+    void Grow3 ()
+    {
+        level = 3;
+        if ( waterNum >= grow[2] )
+            return;
+        anim.speed = 0;
+    }
+
+    void Grow4 ()
+    {
+        level = 4;
+        if ( waterNum >= grow[3] )
+            return;
+        anim.speed = 0;
+    }
+
+    void Grow5 ()
+    {
+        level = 5;
+        if ( waterNum >= grow[4] )
+            return;
+        anim.speed = 0;
+    }
+
+    void Grow6 ()
+    {
+        PlantColloder.enabled = false;
+        RootColloder.enabled = true;
     }
 
 }

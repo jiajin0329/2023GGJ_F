@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8815222754872781881}
   - component: {fileID: 1732616275}
   m_Layer: 0
-  m_Name: Root
+  m_Name: TempRoot
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
