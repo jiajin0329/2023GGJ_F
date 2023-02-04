@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     {
         Move ();
         Camera ();
+        Die ();
     }
 
     void Move ()
@@ -41,6 +42,16 @@ public class Player : MonoBehaviour
         camPos.x = Mathf.Max ( 0 , transform.localPosition.x );
         Cam.localPosition = camPos;
     }
+
+    void Die ()
+    {
+        if ( transform.position.y <= -5f )
+        {
+            Menu.self.Dead ();
+            this.enabled = false;
+        }
+    }
+
 
     private void OnCollisionEnter2D ( Collision2D collision )
     {

@@ -33,7 +33,8 @@ public class Enemy : MonoBehaviour
     {
         if ( collision.gameObject.tag == "Player" )
         {
-            Debug.Log ("GameOver");
+            Menu.self.Dead ();
+            collision.GetComponent<Player> ().enabled = false;
         }
 
         if ( collision.gameObject.tag == "Ground" )
