@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Rock : MonoBehaviour
 {
-    private Transform player;
 
     public void RanHeigth ( float posX )
     {
@@ -12,14 +11,5 @@ public class Rock : MonoBehaviour
         pos.x = posX;
         pos.y = Random.Range ( 0 , 3.5f );
         transform.localPosition = pos;
-    }
-    private void Start ()
-    {
-        player = GameObject.Find ( "Player" ).transform;
-    }
-    private void Update ()
-    {
-        if ( player.localPosition.x - transform.localPosition.x > 5 )
-            Destroy ( gameObject );
     }
 }

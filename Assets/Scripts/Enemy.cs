@@ -16,5 +16,10 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log ("GameOver");
         }
+
+        if ( collision.gameObject.tag == "Ground" )
+        {
+            Destroy ( collision.gameObject , 2.0f );
+        }
     }
 }
