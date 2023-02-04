@@ -6,11 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/CreateObj.unity
+    guid: 9f4636260dcda484294a0cfa32a81a03
+  - enabled: 1
     path: Assets/Scenes/StartScene.unity
     guid: 2b60ee3a841b9074bbc2d621d52ad8e3
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/WaterTest.unity
+    guid: 002573c27ef5093438f21c06b58da89c
   - enabled: 1
     path: Assets/Scenes/ScoreScrene.unity
     guid: 5d361785301f18e47b84979bd594a370
