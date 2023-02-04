@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
         {
             body.velocity = new Vector2 ( body.velocity.x , jumpHeigth );
             isGround = false;
+            EffecyPlayer.self.PlayWithString ( "Jump" );
         }
 
         float move = Input.GetAxis ( "Horizontal" );
