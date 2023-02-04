@@ -13,10 +13,12 @@ public class Player : MonoBehaviour
     private float move;
 
     Rigidbody2D body;
+    AudioSource audio;
 
     private void Start ()
     {
         body = GetComponent<Rigidbody2D> ();
+        audio = GetComponent<AudioSource> ();
     }
     private void Update ()
     {
@@ -24,6 +26,13 @@ public class Player : MonoBehaviour
         Camera ();
         Die ();
         CheckState();
+        /*if ( audio.isPlaying == false && move != 0 && isGround == true )
+        {
+            audio.Play ();
+        }
+
+        if ( move == 0 || isGround == false )
+            audio.Stop ();*/
     }
 
     private void CheckState()
@@ -64,8 +73,6 @@ public class Player : MonoBehaviour
 
         move = Input.GetAxis ( "Horizontal" );
         body.velocity = new Vector2 ( move * speed , body.velocity.y );
-
-
     }
     void Camera ()
     {
@@ -89,6 +96,7 @@ public class Player : MonoBehaviour
         if ( collision.gameObject.tag == "Ground" )
         {
             isGround = true;
+            EffecyPlayer.self.Create ( "Drop" );
         }
     }
 
