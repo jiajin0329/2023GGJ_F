@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using TMPro;
 
 public class GoogleSheets : MonoBehaviour
 {
-    [SerializeField] private Text[] leaderboard;
+    [SerializeField] private TextMeshProUGUI[] leaderboard;
     [SerializeField] private ScoreObject score;
+
+    private void Start()
+    {
+        Save();
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
