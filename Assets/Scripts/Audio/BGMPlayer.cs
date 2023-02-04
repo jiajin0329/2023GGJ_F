@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class BGMPlayer : MonoBehaviour
 {
-    BGMPlayer self;
+    public static BGMPlayer self;
     private void Awake ()
     {
         self = this;
     }
 
-
-    AudioSource audio;
+    [HideInInspector]
+    public AudioSource audio;
+    private const string audioPath = "Audio/BGM/";
 
     private void Start ()
     {
         audio = GetComponent<AudioSource> ();
     }
 
-    public void Play ( AudioClip clip )
+    public void Play ( string clipPath )
     {
+        AudioClip clip = Resources.Load<AudioClip> ( audioPath + clipPath );
         audio.clip = clip;
         audio.Play ();
     }
