@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rock : MonoBehaviour
 {
-    public Transform player;
+    private Transform player;
 
     public void RanHeigth ( float posX )
     {

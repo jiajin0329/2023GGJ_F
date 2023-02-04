@@ -10,9 +10,8 @@ public class Enemy : MonoBehaviour
         transform.Translate ( new Vector3 ( speed * Time.deltaTime , 0 , 0 ) );
     }
 
-    private void OnCollisionEnter ( Collision collision )
+    private void OnTriggerEnter2D ( Collider2D collision )
     {
-        Debug.Log ( collision.gameObject.name + collision.gameObject.tag);
         if ( collision.gameObject.tag == "Player" )
         {
             Debug.Log ("GameOver");

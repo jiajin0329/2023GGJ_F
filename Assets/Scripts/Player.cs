@@ -5,18 +5,16 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Transform Cam;
+    
+    private float speed = 5f;
+    private float jumpHeigth = 20f;
+    private bool isGround = false;
 
-    private float speed = 7f;
-    private float gravity = -9.81f;
-    private float jumpHeight = 15f;
-    private bool isGround;
-    private Vector3 playerVelocity;
-
-    CharacterController player;
+    Rigidbody2D body;
 
     private void Start ()
     {
-        player = GetComponent<CharacterController> ();
+        body = GetComponent<Rigidbody2D> ();
     }
     private void Update ()
     {
@@ -26,28 +24,37 @@ public class Player : MonoBehaviour
 
     void Move ()
     {
-        isGround = player.isGrounded;
-
-        Vector3 move = new Vector3 ( Input.GetAxis ( "Horizontal" ) , 0 , 0 );
-        player.Move ( move * Time.deltaTime * speed );
-
-        if ( move != Vector3.zero )
+        if ( Input.GetKeyDown ( KeyCode.W ) && isGround == true )
         {
-            gameObject.transform.forward = move;
+            body.velocity = new Vector2 ( body.velocity.x , jumpHeigth );
+            isGround = false;
         }
 
-        if ( Input.GetKey ( KeyCode.W ) && isGround )
-        {
-            playerVelocity.y += jumpHeight;
-        }
+        float move = Input.GetAxis ( "Horizontal" );
+        body.velocity = new Vector2 ( move * speed , body.velocity.y );
 
-        playerVelocity.y += gravity * Time.deltaTime;
-        player.Move ( playerVelocity * Time.deltaTime );
+
     }
     void Camera ()
     {
         Vector3 camPos = Cam.localPosition;
-        camPos.x = Mathf.Max ( 0 , player.transform.localPosition.x );
+        camPos.x = Mathf.Max ( 0 , transform.localPosition.x );
         Cam.localPosition = camPos;
+    }
+
+    private void OnCollisionEnter2D ( Collision2D collision )
+    {
+        if ( collision.gameObject.tag == "Ground" )
+        {
+            isGround = true;
+        }
+    }
+
+    private void OnCollisionExit2D ( Collision2D collision )
+    {
+        if ( collision.gameObject.tag == "Ground" )
+        {
+            isGround = false;
+        }
     }
 }
