@@ -22,6 +22,7 @@ public class GoogleSheets : MonoBehaviour
     public void Save()
     {
         StartCoroutine(DoFunction());
+        inputField.interactable = false;
     }
 
     IEnumerator DoFunction()
