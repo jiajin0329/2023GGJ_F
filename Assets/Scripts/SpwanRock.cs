@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class SpwanRock : MonoBehaviour
 {
-    public Rock Rock;
+    public Rock [] Rocks;
     public Transform player;
 
-    private int num = 0;
+    private int num = 2;
     private float distance = 4f;
 
     private void Start ()
     {
-        for ( int i = 0; i < 5; i++ )
-            Spwan ();
+        for ( int i = 0; i < 3; i++ )
+            SpwanDefault ();
     }
 
     private void Update ()
@@ -24,9 +24,17 @@ public class SpwanRock : MonoBehaviour
         }
     }
 
+    void SpwanDefault ()
+    {
+        Rock rock = Instantiate<Rock> ( Rocks [0] , transform );
+        rock.RanHeigth ( num * distance );
+        num++;
+    }
+
     void Spwan ()
     {
-        Rock rock = Instantiate<Rock> ( Rock , transform );
+        int ran = Random.Range ( 0 , 2 );
+        Rock rock = Instantiate<Rock> ( Rocks [ran] , transform );
         rock.RanHeigth ( num * distance );
         num++;
     }
