@@ -9,11 +9,10 @@ public class GoogleSheets : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI[] leaderboard;
     [SerializeField] private ScoreObject score;
+    [SerializeField] private TMP_InputField inputField;
 
-    private void Start()
-    {
-        Save();
-    }
+    private bool loading;
+        
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -30,7 +29,8 @@ public class GoogleSheets : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("SCORE", score.score);
-        string url = "https://script.google.com/macros/s/AKfycby40QVHPl1un3eqxL5ML58SQtFJlFfiDnnevIYdIJL2o6olvUihJt0Dq9JjeQEczRQ/exec";
+        form.AddField("NAME", inputField.text);
+        string url = "https://script.google.com/macros/s/AKfycbygoPj7F6eIDxHN1bOV-ZjrI6jD_svJH8kEQQj1ePkNoNJ8-h5KK5YmrfANd7tJyM8/exec";
         UnityWebRequest requests = UnityWebRequest.Post(url, form);
         yield return requests.SendWebRequest();
 
@@ -41,9 +41,9 @@ public class GoogleSheets : MonoBehaviour
         else
         {
             string[] scores = requests.downloadHandler.text.Split(',');
-            for (int i = 0;i< 5; i++)
+            for (int i = 0; i < 5; i++)
             {
-                leaderboard[i].text = (i+1) + ": " + scores[i];
+                leaderboard[i].text = (i + 1) + ": " + scores[i * 2 + 1] + "  " + scores[i * 2];
             }
 
         }
