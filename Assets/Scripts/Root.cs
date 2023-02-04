@@ -14,6 +14,9 @@ public class Root : MonoBehaviour
 
         transform.localScale += new Vector3 ( speed * Time.deltaTime , 0 , 0 );
         if ( transform.localScale.x >= 1 )
+        {
             GetComponent<BoxCollider2D> ().isTrigger = false;
+            GetComponent<SpriteRenderer> ().color = Color.green;
+        }
     }
 }
