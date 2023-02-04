@@ -10,12 +10,12 @@ public class ScoreboardManager : MonoBehaviour
     [SerializeField] private Text scoreText;
     private void Start()
     {
-        scoreText.text = "SCORE: " + score.score;
+        scoreText.text = "YOUR SCORE: " + score.score;
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void ExitGame()

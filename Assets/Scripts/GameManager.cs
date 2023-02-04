@@ -35,6 +35,6 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         score.score = timePassed.ToString("0.00");
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 }
