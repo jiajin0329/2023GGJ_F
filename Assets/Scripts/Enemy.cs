@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
         if ( collision.gameObject.tag == "Player" )
         {
             GameManager.self.GameOver();
+            EffecyPlayer.self.Create ( "Dead" );
             collision.GetComponent<Player> ().enabled = false;
         }
 

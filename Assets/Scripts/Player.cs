@@ -86,6 +86,7 @@ public class Player : MonoBehaviour
         if ( transform.position.y <= -5f )
         {
             GameManager.self.GameOver();
+            EffecyPlayer.self.Create ( "Dead" );
             this.enabled = false;
         }
     }

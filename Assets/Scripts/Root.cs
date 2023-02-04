@@ -5,7 +5,27 @@ using UnityEngine.EventSystems;
 
 public class Root : MonoBehaviour
 {
+    BoxCollider2D player;
+
     private float speed = 1f;
+
+
+
+    private void Start ()
+    {
+        player = GameObject.Find ( "Player" ).GetComponent<BoxCollider2D>();
+
+        Physics2D.IgnoreCollision ( GetComponent<BoxCollider2D> () , player , true );
+    }
+
+
+    private void OnCollisionEnter2D ( Collision2D collision )
+    {
+        if ( collision.gameObject.tag == "Water" )
+        {
+            collision.gameObject.GetComponent<WaterParticle> ().WaterDisappear ();
+        }
+    }
     private void OnMouseDrag ()
     {
         if ( transform.localScale.x >= 1 )
@@ -14,7 +34,7 @@ public class Root : MonoBehaviour
         transform.localScale += new Vector3 ( speed * Time.deltaTime , 0 , 0 );
         if ( transform.localScale.x >= 1 )
         {
-            GetComponent<BoxCollider2D> ().isTrigger = false;
+            Physics2D.IgnoreCollision ( GetComponent<BoxCollider2D> () , player , false );
             GetComponent<SpriteRenderer> ().color = Color.green;
         }
     }
