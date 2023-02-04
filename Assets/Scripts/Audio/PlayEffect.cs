@@ -8,11 +8,6 @@ public class PlayEffect : MonoBehaviour
 
     AudioSource audio;
 
-    private void Start ()
-    {
-        audio = GetComponent<AudioSource> ();
-    }
-
     private void Update ()
     {
         if ( isPlay == true && audio.isPlaying == false )
@@ -23,6 +18,7 @@ public class PlayEffect : MonoBehaviour
 
     public void Play ( AudioClip clip )
     {
+        audio = GetComponent<AudioSource> ();
         audio.clip = clip;
         audio.Play ();
         isPlay = true;

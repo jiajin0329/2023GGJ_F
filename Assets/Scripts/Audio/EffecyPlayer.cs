@@ -14,14 +14,11 @@ public class EffecyPlayer : MonoBehaviour
 
     private const string audioPath = "Audio/";
 
-    public void PlayWithString ( string path )
+    public void Create ( string path )
     {
+        Debug.Log (audioPath + path);
         AudioClip clip = Resources.Load<AudioClip> ( audioPath + path );
-        PlayWithClip ( clip );
-    }
-
-    public void PlayWithClip ( AudioClip clip )
-    {
+        Debug.Log ( clip.name );
         Play ( clip );
     }
 

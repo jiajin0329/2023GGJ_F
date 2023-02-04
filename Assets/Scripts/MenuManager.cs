@@ -8,12 +8,12 @@ public class MenuManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(2);
-        EffecyPlayer.self.PlayWithString ( "ClickButton" );   //播放按鈕音效
+        EffecyPlayer.self.Create ( "ClickButton" );   //播放按鈕音效
     }
 
     public void ExitGame()
     {
         Application.Quit();
-        EffecyPlayer.self.PlayWithString ( "ClickButton" );   //播放按鈕音效
+        EffecyPlayer.self.Create ( "ClickButton" );   //播放按鈕音效
     }
 }
