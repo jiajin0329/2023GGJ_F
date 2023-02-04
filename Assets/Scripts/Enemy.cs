@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     public Transform Player;
 
     [SerializeField]
-    private float speed = 2f;
+    private float speed = 0.5f;
 
     private void FixedUpdate ()
     {
