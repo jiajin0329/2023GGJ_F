@@ -26,13 +26,13 @@ public class Player : MonoBehaviour
         Camera ();
         Die ();
         CheckState();
-        if ( audio.isPlaying == false && move != 0 )
+        /*if ( audio.isPlaying == false && move != 0 && isGround == true )
         {
             audio.Play ();
         }
 
-        if ( move == 0 )
-            audio.Stop ();
+        if ( move == 0 || isGround == false )
+            audio.Stop ();*/
     }
 
     private void CheckState()
@@ -86,6 +86,7 @@ public class Player : MonoBehaviour
         if ( transform.position.y <= -5f )
         {
             GameManager.self.GameOver();
+            EffecyPlayer.self.Create ( "Dead" );
             this.enabled = false;
         }
     }
@@ -96,6 +97,7 @@ public class Player : MonoBehaviour
         if ( collision.gameObject.tag == "Ground" )
         {
             isGround = true;
+            EffecyPlayer.self.Create ( "Drop" );
         }
     }
 
