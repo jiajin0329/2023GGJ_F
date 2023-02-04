@@ -77,6 +77,9 @@ public class Player : MonoBehaviour
 
         move = Input.GetAxis ( "Horizontal" );
         body.velocity = new Vector2 ( move * speed , body.velocity.y );
+        Vector3 scale = transform.localScale;
+        scale.x = move < 0? -1 : 1;
+        transform.localScale = scale;
     }
     void Camera ()
     {
