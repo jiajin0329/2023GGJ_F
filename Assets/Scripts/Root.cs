@@ -42,6 +42,7 @@ public class Root : MonoBehaviour
 
     void Grow1 ()
     {
+        EffecyPlayer.self.Create ( "Grow" );
         level = 1;
         if ( waterNum >= grow[0] )
             return;
@@ -50,6 +51,7 @@ public class Root : MonoBehaviour
 
     void Grow2 ()
     {
+        EffecyPlayer.self.Create ( "Grow" );
         level = 2;
         if ( waterNum >= grow[1] )
             return;
@@ -58,6 +60,7 @@ public class Root : MonoBehaviour
 
     void Grow3 ()
     {
+        EffecyPlayer.self.Create ( "Grow" );
         level = 3;
         if ( waterNum >= grow[2] )
             return;
@@ -66,6 +69,7 @@ public class Root : MonoBehaviour
 
     void Grow4 ()
     {
+        EffecyPlayer.self.Create ( "Grow" );
         level = 4;
         if ( waterNum >= grow[3] )
             return;
@@ -74,6 +78,7 @@ public class Root : MonoBehaviour
 
     void Grow5 ()
     {
+        EffecyPlayer.self.Create ( "Grow" );
         level = 5;
         if ( waterNum >= grow[4] )
             return;
@@ -82,6 +87,7 @@ public class Root : MonoBehaviour
 
     void Grow6 ()
     {
+        EffecyPlayer.self.Create ( "Finish" );
         PlantColloder.enabled = false;
         RootColloder.enabled = true;
     }
