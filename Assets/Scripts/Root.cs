@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 public class Root : MonoBehaviour
 {
     private float speed = 1f;
-
     private void OnMouseDrag ()
     {
         if ( transform.localScale.x >= 1 )
@@ -19,4 +18,5 @@ public class Root : MonoBehaviour
             GetComponent<SpriteRenderer> ().color = Color.green;
         }
     }
+
 }

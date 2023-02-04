@@ -5,10 +5,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Transform Cam;
-    
+
+    [SerializeField] Animator playerAnimator;
     private float speed = 5f;
     private float jumpHeigth = 20f;
     private bool isGround = false;
+    private float move;
 
     Rigidbody2D body;
 
@@ -21,6 +23,34 @@ public class Player : MonoBehaviour
         Move ();
         Camera ();
         Die ();
+        CheckState();
+    }
+
+    private void CheckState()
+    {
+        if (!isGround)
+        {
+            playerAnimator.SetFloat("State", 2);
+        }
+
+        else if (move!=0)
+        {
+            playerAnimator.SetFloat("State", 1);
+        }
+
+        else
+        {
+            playerAnimator.SetFloat("State", 0);
+        }
+
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            playerAnimator.SetBool("Shooting", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("Shooting", false);
+        }
     }
 
     void Move ()
@@ -31,7 +61,7 @@ public class Player : MonoBehaviour
             isGround = false;
         }
 
-        float move = Input.GetAxis ( "Horizontal" );
+        move = Input.GetAxis ( "Horizontal" );
         body.velocity = new Vector2 ( move * speed , body.velocity.y );
 
 
@@ -47,7 +77,7 @@ public class Player : MonoBehaviour
     {
         if ( transform.position.y <= -5f )
         {
-            Menu.self.Dead ();
+            GameManager.self.GameOver();
             this.enabled = false;
         }
     }
