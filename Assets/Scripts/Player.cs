@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
 
     void Move ()
     {
-        if ( Input.GetKeyDown ( KeyCode.W ) && isGround == true )
+        if ( Input.GetKeyDown ( KeyCode.Space ) && isGround == true )
         {
             body.velocity = new Vector2 ( body.velocity.x , jumpHeigth );
             isGround = false;
