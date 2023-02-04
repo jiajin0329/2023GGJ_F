@@ -30,7 +30,7 @@ public class GoogleSheets : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("SCORE", score.score);
         form.AddField("NAME", inputField.text);
-        string url = "https://script.google.com/macros/s/AKfycbzrkPoN6eQfgVx6gBpystzqyG14xgj0N_MUJEukkBnf5EHNfqyv7IaKuZUOOPwfsmg/exec";
+        string url = "https://script.google.com/macros/s/AKfycbwL0dkDR6d9JgjRkEjiJF70Wl5ERlUFQ_J7Gz5nw8BjKrHZvtfGgZahHP6-fIcgZgo/exec";
         UnityWebRequest requests = UnityWebRequest.Post(url, form);
         yield return requests.SendWebRequest();
 
