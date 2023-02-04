@@ -33,7 +33,7 @@ public class Water : MonoBehaviour {
             if(Input.GetKey(KeyCode.Mouse0)) {
                 if ( Player.isPlaying == false )
                     Player.Play ();
-                WaterParticle waterParticle = Instantiate(_waterParticlePrefab);
+                WaterParticle waterParticle = Instantiate(_waterParticlePrefab, transform);
                 waterParticle.transform.localScale = waterParticle.transform.localScale * (1f + Random.Range(-0.25f, 0.25f));
                 waterParticle.rigidbody2D.position = _generatePoint.position;
                 waterParticle.rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
