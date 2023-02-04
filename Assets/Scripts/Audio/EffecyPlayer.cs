@@ -16,9 +16,7 @@ public class EffecyPlayer : MonoBehaviour
 
     public void Create ( string path )
     {
-        Debug.Log (audioPath + path);
         AudioClip clip = Resources.Load<AudioClip> ( audioPath + path );
-        Debug.Log ( clip.name );
         Play ( clip );
     }
 
