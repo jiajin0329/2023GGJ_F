@@ -1401,6 +1401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: water particles
       objectReference: {fileID: 0}
+    - target: {fileID: 5622980356265078871, guid: 8c1539b3996136140b48bf1d9fd2f8c8, type: 3}
+      propertyPath: m_TagString
+      value: Water
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c1539b3996136140b48bf1d9fd2f8c8, type: 3}
 --- !u!114 &4238295045418975901 stripped
