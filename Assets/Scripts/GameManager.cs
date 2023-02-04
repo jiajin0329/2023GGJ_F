@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         self = this;
+        BGMPlayer.self.Play ( "Game" );
     }
 
     [SerializeField] private Text scoreText;

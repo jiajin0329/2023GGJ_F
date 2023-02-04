@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Transform Cam;
+    public MeshRenderer BG;
 
     [SerializeField] Animator playerAnimator;
     private float speed = 5f;
@@ -33,6 +34,9 @@ public class Player : MonoBehaviour
 
         if ( move == 0 || isGround == false )
             audio.Stop ();*/
+
+
+        BG.material.SetTextureOffset("_MainTex", new Vector2( transform.localPosition.x * 0.005f  ,  0 ) );
     }
 
     private void CheckState()

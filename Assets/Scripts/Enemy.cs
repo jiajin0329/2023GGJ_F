@@ -21,12 +21,16 @@ public class Enemy : MonoBehaviour
     {
         transform.Translate ( new Vector3 ( speed * Time.deltaTime , 0 , 0 ) );
 
-        if ( Player.position.x - transform.position.x > 17f )
+        float distance = Player.position.x - transform.position.x;
+        if ( distance > 17f )
         {
             Vector3 pos = transform.position;
             pos.x = Player.position.x - 17f;
             transform.position = pos;
         }
+
+        GetComponent<AudioSource> ().volume  = ( 10 - distance ) / 5f + 0.3f;
+        BGMPlayer.self.GetComponent<AudioSource>().volume = ( distance - 5 ) / 20f ;
     }
 
     private void OnTriggerEnter2D ( Collider2D collision )
