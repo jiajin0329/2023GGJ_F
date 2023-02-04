@@ -20,5 +20,6 @@ public class Menu : MonoBehaviour
     public void Dead ()
     {
         Debug.Log ( "GameOver" );
+        EffecyPlayer.self.Create ( "Dead" );
     }
 }
