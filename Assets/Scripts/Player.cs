@@ -20,11 +20,12 @@ public class Player : MonoBehaviour
     {
         Move ();
         Camera ();
+        Die ();
     }
 
     void Move ()
     {
-        if ( Input.GetKeyDown ( KeyCode.W ) && isGround == true )
+        if ( Input.GetKeyDown ( KeyCode.Space ) && isGround == true )
         {
             body.velocity = new Vector2 ( body.velocity.x , jumpHeigth );
             isGround = false;
@@ -41,6 +42,16 @@ public class Player : MonoBehaviour
         camPos.x = Mathf.Max ( 0 , transform.localPosition.x );
         Cam.localPosition = camPos;
     }
+
+    void Die ()
+    {
+        if ( transform.position.y <= -5f )
+        {
+            Menu.self.Dead ();
+            this.enabled = false;
+        }
+    }
+
 
     private void OnCollisionEnter2D ( Collision2D collision )
     {
