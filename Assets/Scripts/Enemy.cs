@@ -4,10 +4,29 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public Transform Player;
+
+    [SerializeField]
     private float speed = 2f;
+
+    private void FixedUpdate ()
+    {
+        if ( speed >= 4.5f )
+            return;
+
+        speed += 0.001f;
+    }
+
     void Update()
     {
         transform.Translate ( new Vector3 ( speed * Time.deltaTime , 0 , 0 ) );
+
+        if ( Player.position.x - transform.position.x > 17f )
+        {
+            Vector3 pos = transform.position;
+            pos.x = Player.position.x - 17f;
+            transform.position = pos;
+        }
     }
 
     private void OnTriggerEnter2D ( Collider2D collision )
