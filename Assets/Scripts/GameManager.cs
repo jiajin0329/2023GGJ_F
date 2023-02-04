@@ -7,6 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager self;
+    private void Awake()
+    {
+        self = this;
+    }
+
     [SerializeField] private Text scoreText;
     [SerializeField] private ScoreObject score;
     private float timePassed;
