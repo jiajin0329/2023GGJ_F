@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager self;
+    private bool gameEnd = false;
     private void Awake()
     {
         self = this;
@@ -28,18 +29,17 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        timePassed += Time.deltaTime;
-        scoreText.text = "SCORE: " + timePassed.ToString("0.00");
-
-        if (Input.GetKeyDown(KeyCode.I))
+        if (!gameEnd)
         {
-            GameOver();
+            timePassed += Time.deltaTime;
+            scoreText.text = "SCORE: " + timePassed.ToString("0.00");
         }
     }
 
     public void GameOver()
     {
-        score.score = timePassed.ToString("0.00");        
+        score.score = timePassed.ToString("0.00");
+        gameEnd = true;
     }
 
     public void Scoreboard()

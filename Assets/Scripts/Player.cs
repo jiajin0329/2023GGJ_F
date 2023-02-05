@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public MeshRenderer FG;
 
     [SerializeField] Animator playerAnimator;
+    [SerializeField] ParticleSystem cloud;
     private float speed = 5f;
     private float jumpHeigth = 20f;
     private bool isGround = false;
@@ -30,6 +31,9 @@ public class Player : MonoBehaviour
         if (transform.position.y <= -5f && dead == false)
         {
             Die();
+            DontDestroyOnLoad(cloud);
+            cloud.Play();
+            SceneLoader.LoadScene(3);
         }       
         CheckAnimationState();
         /*if ( audio.isPlaying == false && move != 0 && isGround == true )

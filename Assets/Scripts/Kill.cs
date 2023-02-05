@@ -28,7 +28,7 @@ public class Kill : MonoBehaviour
         ParticleSystem par = Instantiate ( particle );
         DontDestroyOnLoad ( par.gameObject );
         par.Play ();
-        Destroy ( par.gameObject , 5f );
+        //Destroy ( par.gameObject , 5f );
 
         SceneLoader.LoadScene ( 3 );
     }
