@@ -10,7 +10,7 @@ public class Teach : MonoBehaviour
 
     private void Start ()
     {
-        BGMPlayer.self.Play ( "Menu" );
+        BGMPlayer.self.audio.Stop ();
         StartCoroutine ( "Play" );
     }
 
