@@ -33,7 +33,10 @@ public class Root : MonoBehaviour
             collision.gameObject.GetComponent<CircleCollider2D> ().enabled = false;
             collision.gameObject.GetComponent<WaterParticle> ().WaterDisappear ();
             if ( level >= 5 )
+            {
+                anim.speed = 1;
                 return;
+            }
 
             if ( waterNum >= grow[level] )
                 anim.speed = 1;

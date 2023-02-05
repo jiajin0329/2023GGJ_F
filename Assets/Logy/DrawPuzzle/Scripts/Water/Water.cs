@@ -40,6 +40,10 @@ public class Water : MonoBehaviour {
                 waterParticle.rigidbody2D.velocity = WaterVelocity();
                 waterParticle.LifeTIme();
             }
+            if ( Input.GetKeyUp ( KeyCode.Mouse0 ) )
+            {
+                Player.Stop ();
+            }
         }
     }
 }
