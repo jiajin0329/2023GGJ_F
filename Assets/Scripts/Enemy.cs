@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
     public Transform Player;
-
-    [SerializeField]
     private float speed = 0.5f;
 
     private void FixedUpdate ()
@@ -30,6 +29,11 @@ public class Enemy : MonoBehaviour
         }
 
         GetComponent<AudioSource> ().volume  = ( 10 - distance ) / 5f + 0.3f;
+        if ( BGMPlayer.self == null )
+        {
+            SceneManager.LoadScene ( 0 );
+            return;
+        }
         BGMPlayer.self.GetComponent<AudioSource>().volume = ( distance - 5 ) / 20f ;
     }
 
