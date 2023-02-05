@@ -7,6 +7,7 @@ public class Root : MonoBehaviour
 {
     public BoxCollider2D PlantColloder;
     public BoxCollider2D RootColloder;
+    public ParticleSystem particle;
 
     private int waterNum;
     private int level = 0;
@@ -23,7 +24,6 @@ public class Root : MonoBehaviour
 
         Physics2D.IgnoreCollision ( GetComponent<BoxCollider2D> () , player , true );
     }
-
 
     private void OnCollisionEnter2D ( Collision2D collision )
     {
@@ -88,6 +88,7 @@ public class Root : MonoBehaviour
     void Grow6 ()
     {
         EffecyPlayer.self.Create ( "Finish" );
+        particle.Play ();
         PlantColloder.enabled = false;
         RootColloder.enabled = true;
     }
