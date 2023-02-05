@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
             audio.Stop ();*/
 
 
-        BG.material.SetTextureOffset("_MainTex", new Vector2( transform.localPosition.x * 0.002f  ,  0 ) );
+        BG.material.SetTextureOffset("_MainTex", new Vector2( transform.localPosition.x * 0.002f ,  0 ) );
         FG.material.SetTextureOffset("_MainTex", new Vector2( transform.localPosition.x * uv ,  0 ) );
     }
 
