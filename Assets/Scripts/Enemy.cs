@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
     public Transform Player;
+    public VideoPlayer video;
     private float speed = 0.5f;
 
     private void FixedUpdate ()
@@ -42,6 +44,7 @@ public class Enemy : MonoBehaviour
         if ( collision.gameObject.tag == "Player" )
         {
             collision.GetComponent<Player>().Die();
+            video.Play ();
         }
 
         if ( collision.gameObject.tag == "Ground" )

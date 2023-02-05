@@ -1285,6 +1285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 966326484}
+  video: {fileID: 0}
 --- !u!95 &1450469639
 Animator:
   serializedVersion: 5

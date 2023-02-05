@@ -11,7 +11,8 @@ public class ScoreboardManager : MonoBehaviour
     private void Start()
     {
         scoreText.text = "YOUR SCORE: " + score.score;
-        BGMPlayer.self.Play( "Score" );
+        if ( BGMPlayer.self != null )
+            BGMPlayer.self.Play( "Score" );
     }
 
     public void StartGame()
