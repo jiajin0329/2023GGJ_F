@@ -11,6 +11,11 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         self = this;
+        if ( BGMPlayer.self == null )
+        {
+            SceneManager.LoadScene ( 0 );
+            return;
+        }
         BGMPlayer.self.Play ( "Game" );
     }
 

@@ -10,6 +10,7 @@ public class Teach : MonoBehaviour
 
     private void Start ()
     {
+        BGMPlayer.self.Play ( "Menu" );
         StartCoroutine ( "Play" );
     }
 
