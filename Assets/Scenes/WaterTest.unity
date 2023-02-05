@@ -911,6 +911,7 @@ MonoBehaviour:
   Cam: {fileID: 596837676}
   BG: {fileID: 70372034}
   FG: {fileID: 271685102}
+  uv: 0.01
   playerAnimator: {fileID: 966326479}
 --- !u!50 &966326482
 Rigidbody2D:
