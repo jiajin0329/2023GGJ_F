@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     {
         Move ();
         Camera ();
+        cloud.transform.position = new Vector3(Cam.transform.position.x, cloud.transform.position.y, cloud.transform.position.z);
         if (transform.position.y <= -5f && dead == false)
         {
             Die();

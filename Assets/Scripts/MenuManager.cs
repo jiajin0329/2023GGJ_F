@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    private string gitHubLink = "https://github.com/jiajin0329/2023GGJ_F";
     private void Start ()
     {
         BGMPlayer.self.Play ( "GameStart" );
@@ -20,5 +21,10 @@ public class MenuManager : MonoBehaviour
     {
         Application.Quit();
         EffecyPlayer.self.Create ( "ClickButton" );   //¼½©ñ«ö¶s­µ®Ä
+    }
+
+    public void GoToURl()
+    {
+        Application.OpenURL(gitHubLink);
     }
 }
