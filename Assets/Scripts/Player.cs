@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     private float jumpHeigth = 20f;
     private bool isGround = false;
     private float move;
+    private bool dead = false;
 
     Rigidbody2D body;
     AudioSource audio;
@@ -26,8 +27,11 @@ public class Player : MonoBehaviour
     {
         Move ();
         Camera ();
-        Die ();
-        CheckState();
+        if (transform.position.y <= -5f && dead == false)
+        {
+            Die();
+        }       
+        CheckAnimationState();
         /*if ( audio.isPlaying == false && move != 0 && isGround == true )
         {
             audio.Play ();
@@ -41,7 +45,7 @@ public class Player : MonoBehaviour
         FG.material.SetTextureOffset("_MainTex", new Vector2( transform.localPosition.x * 0.005f  ,  0 ) );
     }
 
-    private void CheckState()
+    private void CheckAnimationState()
     {
         if (!isGround)
         {
@@ -90,14 +94,11 @@ public class Player : MonoBehaviour
         Cam.localPosition = camPos;
     }
 
-    void Die ()
+   public void Die()
     {
-        if ( transform.position.y <= -5f )
-        {
-            GameManager.self.GameOver();
-            EffecyPlayer.self.Create ( "Dead" );
-            this.enabled = false;
-        }
+        dead = true;
+        GameManager.self.GameOver();
+        EffecyPlayer.self.Create("Dead");
     }
 
 

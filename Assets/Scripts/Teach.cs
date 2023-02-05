@@ -33,6 +33,6 @@ public class Teach : MonoBehaviour
 
     public void Skip ()
     {
-        SceneManager.LoadScene ( 2 );
+        SceneLoader.LoadScene ( 2 );
     }
 }

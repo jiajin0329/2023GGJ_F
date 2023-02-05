@@ -34,7 +34,11 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        score.score = timePassed.ToString("0.00");
+        score.score = timePassed.ToString("0.00");        
+    }
+
+    public void Scoreboard()
+    {
         SceneManager.LoadScene(3);
     }
 }

@@ -12,7 +12,7 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(4);
+        SceneLoader.LoadScene(4);
         EffecyPlayer.self.Create ( "ClickButton" );   //¼½©ñ«ö¶s­µ®Ä
     }
 
