@@ -8,6 +8,9 @@ public class Player : MonoBehaviour
     public MeshRenderer BG;
     public MeshRenderer FG;
 
+    [SerializeField]
+    private float uv;
+
     [SerializeField] Animator playerAnimator;
     private float speed = 5f;
     private float jumpHeigth = 20f;
@@ -42,7 +45,7 @@ public class Player : MonoBehaviour
 
 
         BG.material.SetTextureOffset("_MainTex", new Vector2( transform.localPosition.x * 0.002f  ,  0 ) );
-        FG.material.SetTextureOffset("_MainTex", new Vector2( transform.localPosition.x * 0.005f  ,  0 ) );
+        FG.material.SetTextureOffset("_MainTex", new Vector2( transform.localPosition.x * uv ,  0 ) );
     }
 
     private void CheckAnimationState()
