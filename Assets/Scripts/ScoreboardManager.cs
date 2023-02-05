@@ -12,7 +12,10 @@ public class ScoreboardManager : MonoBehaviour
     {
         scoreText.text = "YOUR SCORE: " + score.score;
         if ( BGMPlayer.self != null )
+        {
             BGMPlayer.self.Play( "Score" );
+            BGMPlayer.self.audio.volume = 1;
+        }
     }
 
     public void StartGame()
