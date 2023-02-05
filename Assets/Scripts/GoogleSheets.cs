@@ -9,8 +9,8 @@ public class GoogleSheets : MonoBehaviour
     [SerializeField] private Text[] leaderboard;
     [SerializeField] private ScoreObject score;
     [SerializeField] private InputField inputField;
+    [SerializeField] private GameObject loadingScreen;
 
-    private bool loading;
         
     private void Update()
     {
@@ -23,6 +23,8 @@ public class GoogleSheets : MonoBehaviour
     {
         StartCoroutine(DoFunction());
         inputField.interactable = false;
+
+        loadingScreen.SetActive(true);
     }
 
     IEnumerator DoFunction()
@@ -31,7 +33,7 @@ public class GoogleSheets : MonoBehaviour
         form.AddField("SCORE", score.score);
         form.AddField("NAME", inputField.text);
         string url = "https://script.google.com/macros/s/AKfycbwL0dkDR6d9JgjRkEjiJF70Wl5ERlUFQ_J7Gz5nw8BjKrHZvtfGgZahHP6-fIcgZgo/exec";
-        UnityWebRequest requests = UnityWebRequest.Post(url, form);
+        UnityWebRequest requests = UnityWebRequest.Post(url, form);        
         yield return requests.SendWebRequest();
 
         if (requests.result == UnityWebRequest.Result.ProtocolError || requests.result == UnityWebRequest.Result.ConnectionError)
@@ -47,5 +49,6 @@ public class GoogleSheets : MonoBehaviour
             }
 
         }
+        loadingScreen.SetActive(false);
     }
 }
